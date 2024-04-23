@@ -1,0 +1,13 @@
+diff --git a/pkgs/os-specific/linux/kernel/manual-config.nix b/pkgs/os-specific/linux/kernel/manual-config.nix
+index 2ba31fbc978921..3cfd500b6f89b2 100644
+--- a/pkgs/os-specific/linux/kernel/manual-config.nix
++++ b/pkgs/os-specific/linux/kernel/manual-config.nix
+@@ -371,7 +371,7 @@ stdenv.mkDerivation ((drvAttrs config stdenv.hostPlatform.linux-kernel kernelPat
+       ++ optional  (lib.versionAtLeast version "5.8")  elfutils
+       ;
+ 
+-  hardeningDisable = [ "bindnow" "format" "fortify" "stackprotector" "pic" "pie" ];
++  hardeningDisable = [ "bindnow" "format" "fortify" "stackprotector" "pic" "pie" "relro" ];
+ 
+   # Absolute paths for compilers avoid any PATH-clobbering issues.
+   makeFlags = [
